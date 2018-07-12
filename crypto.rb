@@ -12,4 +12,16 @@ def get_crypto_value
         p my_hash=nomcrypto.zip(val_without_dollar).to_h
   #td class="no-wrap currency-name"
 end
-get_crypto_value
+
+
+def refresh_each_hour
+    t = Time.now #Temps qui va rester figé
+    while 0
+      t1 = Time.now #Temps qui s'actualise
+      if t1.min == t.min && t1.sec == t.sec #Si les minutes et secondes sont égales
+        p  get_crypto_value                   #alors on est rendu à l'heure d'après
+      end
+    end
+  end
+  
+  refresh_each_hour
