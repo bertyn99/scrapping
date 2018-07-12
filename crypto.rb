@@ -8,9 +8,9 @@ def get_crypto_value
     lien.text }
     valcrypto = doc.css('td > a.price').map{|lien| 
         lien.text }
-        val_without_dollar=valcrypto.map{|n| n.gsub('$','')}
-        p my_hash=nomcrypto.zip(val_without_dollar).to_h
-  #td class="no-wrap currency-name"
+        val_without_dollar=valcrypto.map{|n| n.gsub('$','')} #le gsub retire remplace le dollar par un espace
+        p my_hash=nomcrypto.zip(val_without_dollar).to_h #hash des crypto et valeur
+  
 end
 
 

@@ -8,7 +8,7 @@ def get_the_email_of_a_townhal_from_its_webpage(url)
     
 end
 
-#get_the_email_of_a_townhal_from_its_webpage("http://annuaire-des-mairies.com/"+rl)
+
 
 def get_all_the_urls_of_val_doise_townhalls(url)
     doc = Nokogiri::HTML(open(url))
@@ -20,19 +20,19 @@ def get_all_the_urls_of_val_doise_townhalls(url)
      return [url,name]
 end
 
-#get_all_the_urls_of_val_doise_townhalls("http://annuaire-des-mairies.com/val-d-oise.html")
+
 
 def get_annuaire_of_city_mail
   
  array = get_all_the_urls_of_val_doise_townhalls("http://annuaire-des-mairies.com/val-d-oise.html")
-email=array[0].map{|lien| get_the_email_of_a_townhal_from_its_webpage(lien)}
+email=array[0].map{|lien| get_the_email_of_a_townhal_from_its_webpage(lien)}# tableau des email des maires de val d'oise
 name=array[1]
-annuaire=[]
-i=0
+annuaire=[] # initialisation du hash vide
+i=0# initialisation du compteur 
 array[1].map do
 
     annuaire+=[{ "name" =>name[i], "email" =>email[i]}]
-    i+=1
+    i+=1# in crémentation du compteur a chaque tour de la boucle
 end
 p annuaire
 end
